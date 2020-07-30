@@ -15,14 +15,7 @@
         <munit.version>2.1.2</munit.version>
     <mule.maven.plugin.version>3.3.5</mule.maven.plugin.version>
     </properties>
-	
-	<pluginRepositories>
-    <pluginRepository>
-        <id>mule-public</id>
-        <url>https://repository.mulesoft.org/nexus/content/repositories/releases</url>
-    </pluginRepository>
-	</pluginRepositories>
-	
+
     <build>
         <testResources>
             <testResource>
