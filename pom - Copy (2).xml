@@ -15,7 +15,14 @@
         <munit.version>2.1.2</munit.version>
     <mule.maven.plugin.version>3.3.5</mule.maven.plugin.version>
     </properties>
-
+	
+	<pluginRepositories>
+    <pluginRepository>
+        <id>mule-public</id>
+        <url>https://repository.mulesoft.org/nexus/content/repositories/releases</url>
+    </pluginRepository>
+	</pluginRepositories>
+	
     <build>
         <testResources>
             <testResource>
@@ -56,6 +63,34 @@
                     </coverage>
                 </configuration>
             </plugin>
+			 <plugin>
+        <groupId>org.mule.tools.maven</groupId>
+        <artifactId>mule-app-maven-plugin</artifactId>
+        <version>1.1</version>
+        <extensions>true</extensions>
+    </plugin>
+    <plugin>
+        <!--groupId>org.mule.tools.maven</groupId>
+        <artifactId>mule-maven-plugin</artifactId-->
+        <version>2.0</version>
+        <configuration>
+            <deploymentType>cloudhub</deploymentType>
+            <muleVersion>3.7.0</muleVersion>
+            <username>myUsername</username>
+            <password>myPassword</password>
+            <redeploy>true</redeploy>
+            <environment>Production</environment>
+        </configuration>
+        <executions>
+            <execution>
+                <id>deploy</id>
+                <phase>deploy</phase>
+                <goals>
+                    <goal>deploy</goal>
+                </goals>
+            </execution>
+        </executions>
+    </plugin>
         </plugins>
     </build>
 
